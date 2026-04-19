@@ -32,11 +32,11 @@ function ParticleField() {
     <Points ref={ref} positions={positions} stride={3} frustumCulled={false}>
       <PointMaterial
         transparent
-        color="#7c3aed"
+        color="#bef264"
         size={0.025}
         sizeAttenuation={true}
         depthWrite={false}
-        opacity={0.7}
+        opacity={0.6}
       />
     </Points>
   );
@@ -75,11 +75,11 @@ function FloatingMesh() {
       <mesh ref={meshRef} position={[0, 0, 0]}>
         <icosahedronGeometry args={[1.2, 1]} />
         <meshStandardMaterial
-          color="#7c3aed"
+          color="#bef264"
           wireframe
           transparent
           opacity={0.25}
-          emissive="#7c3aed"
+          emissive="#bef264"
           emissiveIntensity={0.3}
         />
       </mesh>
@@ -88,11 +88,11 @@ function FloatingMesh() {
       <mesh ref={meshRef2} position={[2.5, -1, -1]}>
         <tetrahedronGeometry args={[0.6, 0]} />
         <meshStandardMaterial
-          color="#06b6d4"
+          color="#84cc16"
           wireframe
           transparent
           opacity={0.35}
-          emissive="#06b6d4"
+          emissive="#84cc16"
           emissiveIntensity={0.3}
         />
       </mesh>
@@ -101,11 +101,11 @@ function FloatingMesh() {
       <mesh ref={meshRef3} position={[-2.5, 0.5, -1]}>
         <octahedronGeometry args={[0.7, 0]} />
         <meshStandardMaterial
-          color="#a855f7"
+          color="#d9f99d"
           wireframe
           transparent
           opacity={0.35}
-          emissive="#a855f7"
+          emissive="#d9f99d"
           emissiveIntensity={0.3}
         />
       </mesh>
@@ -122,8 +122,8 @@ const HeroCanvas: React.FC = () => {
       dpr={[1, 1.5]}
     >
       <ambientLight intensity={0.5} />
-      <pointLight position={[5, 5, 5]} intensity={1} color="#7c3aed" />
-      <pointLight position={[-5, -5, 5]} intensity={0.5} color="#06b6d4" />
+      <pointLight position={[5, 5, 5]} intensity={1} color="#bef264" />
+      <pointLight position={[-5, -5, 5]} intensity={0.5} color="#84cc16" />
       <ParticleField />
       <FloatingMesh />
     </Canvas>

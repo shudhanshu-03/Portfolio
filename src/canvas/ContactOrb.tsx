@@ -18,14 +18,14 @@ function GlowOrb() {
   return (
     <Sphere ref={meshRef} args={[1.5, 64, 64]}>
       <MeshDistortMaterial
-        color="#7c3aed"
+        color="#bef264"
         attach="material"
         distort={0.45}
         speed={2.5}
         roughness={0.1}
         metalness={0.2}
         transparent
-        opacity={0.18}
+        opacity={0.3}
         wireframe={false}
       />
     </Sphere>
@@ -41,8 +41,8 @@ const ContactOrb: React.FC = () => {
       dpr={[1, 1.5]}
     >
       <ambientLight intensity={0.5} />
-      <pointLight position={[3, 3, 3]} intensity={2} color="#7c3aed" />
-      <pointLight position={[-3, -3, 3]} intensity={1} color="#06b6d4" />
+      <pointLight position={[3, 3, 3]} intensity={2} color="#bef264" />
+      <pointLight position={[-3, -3, 3]} intensity={1} color="#84cc16" />
       <GlowOrb />
     </Canvas>
   );
