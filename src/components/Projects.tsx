@@ -9,7 +9,7 @@ const projects = [
     category: "Luxury E-Commerce",
     description: "A high-end fashion experience with fluid transitions, minimalist aesthetics, and custom order management backend.",
     image: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2070&auto=format&fit=crop",
-    link: "#", // Placeholder as requested
+    link: "https://pretty-gal.vercel.app/",
     github: "#",
     tech: ["Django", "React", "PostgreSQL", "Framer Motion"]
   },
@@ -26,90 +26,34 @@ const projects = [
     title: "Skycast",
     category: "Weather SaaS",
     description: "Precision weather monitoring platform with real-time analytics and predictive data visualization.",
-    image: "https://images.unsplash.com/photo-1592210633467-3b9110d33d1c?q=80&w=2070&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1530908295418-a12e326966ba?q=80&w=2070&auto=format&fit=crop",
     link: "https://sky-castt.vercel.app/",
     github: "https://github.com/shudhanshu-03/skycast",
     tech: ["React", "FastAPI", "Tailwind CSS", "Chart.js"]
+  },
+  {
+    title: "Sanskrit RAG",
+    category: "AI & Machine Learning",
+    description: "A sophisticated Retrieval-Augmented Generation system capable of processing ancient Sanskrit texts to synthesize intelligent, contextual answers.",
+    image: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=2070&auto=format&fit=crop",
+    link: "",
+    github: "https://github.com/shudhanshu-03/Retrieval-Augmented-Generation--Sanskrit",
+    tech: ["Python", "RAG", "LLMs", "Vector DB"]
+  },
+  {
+    title: "FB Agentic Analyst",
+    category: "Multi-Agent AI",
+    description: "An autonomous AI orchestration tool that diagnoses Facebook ad performance via multi-LLM providers with recursive self-reflection.",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+    link: "",
+    github: "https://github.com/shudhanshu-03/Agentic-Facebook-Performance-Analyst",
+    tech: ["Python", "Streamlit", "Groq API", "Agentic AI"]
   }
 ];
 
-const ProjectCard = ({ project, index }: { project: typeof projects[0], index: number }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.2, duration: 0.8, ease: "easeOut" }}
-      className="group relative flex flex-col md:flex-row gap-12 items-center py-20 border-b border-white/5"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      {/* Project Info */}
-      <div className="flex-1 space-y-6">
-        <div className="flex items-center gap-4">
-          <span className="text-primary font-bold text-sm tracking-widest uppercase">0{index + 1}</span>
-          <span className="text-white/40 text-sm">{project.category}</span>
-        </div>
-        
-        <h3 className="text-4xl md:text-6xl font-bold tracking-tighter group-hover:text-primary transition-colors duration-500">
-          {project.title}
-        </h3>
-        
-        <p className="text-lg text-text-secondary leading-relaxed max-w-lg">
-          {project.description}
-        </p>
-
-        <div className="flex flex-wrap gap-2">
-          {project.tech.map(t => (
-            <span key={t} className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-white/40">
-              {t}
-            </span>
-          ))}
-        </div>
-
-        <div className="flex items-center gap-6 pt-4">
-          <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white hover:text-primary transition-colors group/link">
-            <span>View Live</span>
-            <ExternalLink size={16} className="group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
-          </a>
-          <a href={project.github} className="flex items-center gap-2 text-white/40 hover:text-white transition-colors">
-            <Github size={18} />
-            <span>Source Code</span>
-          </a>
-        </div>
-      </div>
-
-      {/* Project Image Preview */}
-      <div className="flex-1 relative aspect-video w-full overflow-hidden rounded-[2.5rem] bg-surface border border-white/5">
-        <motion.img
-          animate={{ scale: isHovered ? 1.05 : 1 }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as const }}
-          src={project.image}
-          alt={project.title}
-          className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-1000"
-        />
-        
-        {/* Floating Label */}
-        <AnimatePresence>
-          {isHovered && (
-            <motion.div
-              initial={{ scale: 0, x: "-50%", y: "-50%" }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0 }}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-primary rounded-full flex items-center justify-center text-black font-bold text-sm shadow-[0_0_40px_rgba(190,242,100,0.5)] z-20"
-            >
-              Explore
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-    </motion.div>
-  );
-};
-
 const Projects: React.FC = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
   return (
     <section id="projects" className="py-32 relative">
       <div className="pro-container">
@@ -145,10 +89,100 @@ const Projects: React.FC = () => {
           </motion.a>
         </div>
 
-        <div className="flex flex-col">
-          {projects.map((p, i) => (
-            <ProjectCard key={p.title} project={p} index={i} />
-          ))}
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-8 items-stretch">
+          {/* Left Side: List of Projects */}
+          <div className="w-full lg:w-1/3 flex flex-col gap-4">
+            {projects.map((project, index) => {
+              const isActive = activeIndex === index;
+              return (
+                <button
+                  key={project.title}
+                  onClick={() => setActiveIndex(index)}
+                  className={`group text-left p-6 border-l-4 transition-all duration-300 flex flex-col justify-center min-h-[120px] ${
+                    isActive 
+                      ? 'border-primary bg-white/5' 
+                      : 'border-white/10 hover:border-white/30 hover:bg-white/[0.02]'
+                  }`}
+                >
+                  <div className="flex items-center gap-4 mb-2">
+                    <span className={`font-bold text-xs tracking-widest uppercase transition-colors ${
+                      isActive ? 'text-primary' : 'text-white/20 group-hover:text-white/40'
+                    }`}>
+                      0{index + 1}
+                    </span>
+                    <span className={`text-xs transition-colors ${
+                      isActive ? 'text-white/80' : 'text-white/40 group-hover:text-white/60'
+                    }`}>
+                      {project.category}
+                    </span>
+                  </div>
+                  <h3 className={`text-3xl md:text-4xl font-bold tracking-tighter transition-colors ${
+                    isActive ? 'text-white' : 'text-white/40 group-hover:text-white/80'
+                  }`}>
+                    {project.title}
+                  </h3>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Right Side: Active Project Details & Image */}
+          <div className="w-full lg:w-2/3 relative h-[500px] lg:h-[650px] rounded-[2rem] overflow-hidden bg-surface border border-white/5 group">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeIndex}
+                initial={{ opacity: 0, scale: 0.95, filter: 'blur(10px)' }}
+                animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+                exit={{ opacity: 0, scale: 1.05, filter: 'blur(10px)' }}
+                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                className="absolute inset-0"
+              >
+                {/* Background Image */}
+                <img 
+                  src={projects[activeIndex].image} 
+                  alt={projects[activeIndex].title} 
+                  className="w-full h-full object-cover opacity-50 group-hover:opacity-70 transition-opacity duration-700"
+                />
+                
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+                
+                {/* Content Overlay */}
+                <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-end">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2, duration: 0.5 }}
+                  >
+                    <p className="text-lg md:text-xl text-text-secondary leading-relaxed max-w-2xl mb-8">
+                      {projects[activeIndex].description}
+                    </p>
+
+                    <div className="flex flex-wrap gap-2 mb-8">
+                      {projects[activeIndex].tech.map(t => (
+                        <span key={t} className="px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-xs font-bold text-white/70">
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="flex flex-wrap items-center gap-4">
+                      {projects[activeIndex].link && (
+                        <a href={projects[activeIndex].link} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-primary text-black px-6 py-3 rounded-full font-bold hover:scale-105 transition-transform group/link">
+                          <span>View Live</span>
+                          <ExternalLink size={18} className="group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
+                        </a>
+                      )}
+                      <a href={projects[activeIndex].github} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-white/10 backdrop-blur-md border border-white/10 text-white px-6 py-3 rounded-full font-bold hover:bg-white/20 transition-colors">
+                        <Github size={20} />
+                        <span>Source Code</span>
+                      </a>
+                    </div>
+                  </motion.div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </div>
       </div>
     </section>
