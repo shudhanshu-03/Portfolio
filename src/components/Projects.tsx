@@ -14,11 +14,11 @@ const projects = [
     tech: ["Django", "React", "PostgreSQL", "Framer Motion"]
   },
   {
-    title: "Gaming Hub",
+    title: "Veltrix",
     category: "Entertainment Platform",
     description: "A cinematic game discovery hub featuring Steam integration, luxury 'Dark Mode' UI, and dynamic content ingestion.",
     image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop",
-    link: "#", // Placeholder as requested
+    link: "https://veltrix-gold.vercel.app/",
     github: "#",
     tech: ["Python", "FastAPI", "React", "Supabase"]
   },
