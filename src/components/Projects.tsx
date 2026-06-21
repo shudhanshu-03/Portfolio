@@ -10,7 +10,7 @@ const projects = [
     description: "A high-end fashion experience with fluid transitions, minimalist aesthetics, and custom order management backend.",
     image: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2070&auto=format&fit=crop",
     link: "https://pretty-gal.vercel.app/",
-    github: "#",
+    github: "https://github.com/shudhanshu-03/Pretty-Gal",
     tech: ["Django", "React", "PostgreSQL", "Framer Motion"]
   },
   {
@@ -19,7 +19,7 @@ const projects = [
     description: "A cinematic game discovery hub featuring Steam integration, luxury 'Dark Mode' UI, and dynamic content ingestion.",
     image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop",
     link: "https://veltrix-gold.vercel.app/",
-    github: "#",
+    github: "https://github.com/shudhanshu-03/Veltrix",
     tech: ["Python", "FastAPI", "React", "Supabase"]
   },
   {
