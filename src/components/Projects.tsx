@@ -173,10 +173,12 @@ const Projects: React.FC = () => {
                           <ExternalLink size={18} className="group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
                         </a>
                       )}
-                      <a href={projects[activeIndex].github} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-white/10 backdrop-blur-md border border-white/10 text-white px-6 py-3 rounded-full font-bold hover:bg-white/20 transition-colors">
-                        <Github size={20} />
-                        <span>Source Code</span>
-                      </a>
+                      {projects[activeIndex].github && projects[activeIndex].github !== "#" && (
+                        <a href={projects[activeIndex].github} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-white/10 backdrop-blur-md border border-white/10 text-white px-6 py-3 rounded-full font-bold hover:bg-white/20 transition-colors">
+                          <Github size={20} />
+                          <span>Source Code</span>
+                        </a>
+                      )}
                     </div>
                   </motion.div>
                 </div>
