@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="py-20 relative overflow-hidden border-t border-white/5">
+    <footer className="pt-20 pb-40 relative overflow-hidden border-t border-white/5">
       <div className="pro-container">
         <div className="flex flex-col items-center gap-12">
           {/* Brand Logo */}
