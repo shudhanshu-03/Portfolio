@@ -48,6 +48,24 @@ const projects = [
     link: "",
     github: "https://github.com/shudhanshu-03/Agentic-Facebook-Performance-Analyst",
     tech: ["Python", "Streamlit", "Groq API", "Agentic AI"]
+  },
+  {
+    title: "Portfolio Analytics",
+    category: "Data Visualization",
+    description: "A comprehensive analytics dashboard for tracking portfolio metrics and insights, designed with a premium and interactive user interface.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2070&auto=format&fit=crop",
+    link: "",
+    github: "https://github.com/shudhanshu-03/Portfolio-Analytics-Dashboard",
+    tech: ["React", "Analytics", "Tailwind CSS", "Vite"]
+  },
+  {
+    title: "Real-Time Fraud Detection",
+    category: "Microservices Architecture",
+    description: "A robust real-time fraud detection system built on a microservices architecture, capable of processing and analyzing transactions at scale.",
+    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2070&auto=format&fit=crop",
+    link: "",
+    github: "https://github.com/shudhanshu-03/Real-Time-Fraud-Detection-Microservices-Architecture",
+    tech: ["Python", "Microservices", "Kafka", "Docker"]
   }
 ];
 
