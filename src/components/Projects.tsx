@@ -147,7 +147,7 @@ const Projects: React.FC = () => {
           ))}
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-8 items-stretch">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-8 items-start relative">
           {/* Left Side: List of Projects */}
           <div className="w-full lg:w-1/3 flex flex-col gap-4">
             {filteredProjects.map((project, index) => {
@@ -185,7 +185,7 @@ const Projects: React.FC = () => {
           </div>
 
           {/* Right Side: Active Project Details & Image */}
-          <div className="w-full lg:w-2/3 relative h-[500px] lg:h-[650px] rounded-[2rem] overflow-hidden bg-surface border border-white/5 group">
+          <div className="w-full lg:w-2/3 sticky top-32 h-[500px] lg:h-[650px] rounded-[2rem] overflow-hidden bg-surface border border-white/5 group">
             <AnimatePresence mode="wait">
               {filteredProjects.length > 0 && (
                 <motion.div
