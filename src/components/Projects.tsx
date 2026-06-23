@@ -75,6 +75,16 @@ const projects = [
     link: "",
     github: "https://github.com/shudhanshu-03/Real-Time-Fraud-Detection-Microservices-Architecture",
     tech: ["Python", "Microservices", "Kafka", "Docker"]
+  },
+  {
+    title: "Endee RAG Assistant",
+    type: "ai",
+    category: "AI & Machine Learning",
+    description: "A powerful RAG (Retrieval-Augmented Generation) application leveraging the Endee vector database and Google Gemini for intelligent, context-aware synthesis.",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop",
+    link: "",
+    github: "https://github.com/shudhanshu-03/Endee-RAG-Assistant",
+    tech: ["Python", "Streamlit", "Endee DB", "Gemini"]
   }
 ];
 
