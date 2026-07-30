@@ -7,6 +7,16 @@ type ProjectCategory = 'all' | 'fullstack' | 'ai';
 
 const projects = [
   {
+    title: "Resume Forge AI",
+    type: "ai",
+    category: "AI Resume Builder",
+    description: "An AI-powered resume building platform with guest workflows, AI-generated bullet points, and seamless PDF exports.",
+    image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=2070&auto=format&fit=crop",
+    link: "https://resume-forgeai.vercel.app/",
+    github: "https://github.com/shudhanshu-03/Resume-Forge",
+    tech: ["Next.js", "AI", "Tailwind CSS", "NextAuth"]
+  },
+  {
     title: "Pretty Gal",
     type: "fullstack",
     category: "Luxury E-Commerce",
